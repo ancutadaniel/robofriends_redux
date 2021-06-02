@@ -1,7 +1,6 @@
 import React from "react";
 
 const Scroll = (props) => {
-  console.log("scroll", props.color1);
   return (
     <div
       style={{
