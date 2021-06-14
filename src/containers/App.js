@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import CardList from "../components/CardList";
-import SearchBox from "../components/SearchBox";
-import Scroll from "../components/Scroll";
-import "./App.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
+import Header from '../components/Header';
+import './App.css';
 
-import { requestRobots, setSearchField } from "../actions";
+import { requestRobots, setSearchField } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -27,8 +28,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color1: "",
-      color2: "",
+      color1: '',
+      color2: '',
     };
     this.setColor = this.setColor.bind(this);
     this.setColor1 = this.setColor1.bind(this);
@@ -56,20 +57,20 @@ class App extends Component {
     return isPending ? (
       <h1>Loading</h1>
     ) : (
-      <div className="tc">
-        <h1 className="f1">RoboFriends</h1>
+      <div className='tc'>
+        <Header />
         <SearchBox searchChange={onSearchChange} />
         <input
-          type="color"
-          name="color1"
+          type='color'
+          name='color1'
           onChange={this.setColor}
-          value="#ffffff"
+          value='#ffffff'
         />
         <input
-          type="color"
-          name="color1"
+          type='color'
+          name='color1'
           onChange={this.setColor1}
-          value="#ffffff"
+          value='#ffffff'
         />
         <Scroll color1={this.state.color1} color2={this.state.color2}>
           <CardList robots={filteredRobots} />
